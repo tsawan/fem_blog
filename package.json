@@ -1,0 +1,42 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "This is my blog's code.",
+  "main": "index.js",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "@mdx-js/mdx": "^1.5.1",
+    "@mdx-js/react": "^1.5.1",
+    "gatsby": "^2.18.6",
+    "gatsby-plugin-mdx": "^1.0.59",
+    "gatsby-plugin-emotion": "^4.1.16",
+    "gatsby-plugin-react-helmet": "^3.1.16",
+    "gatsby-source-filesystem": "^2.1.40",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsawan/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsawan/blog/issues"
+  },
+  "homepage": "https://github.com/tsawan/blog#readme"
+}
