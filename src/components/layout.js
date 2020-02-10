@@ -1,55 +1,81 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { Link } from 'gatsby';
+import { Global, css } from '@emotion/core';
+import Helmet from 'react-helmet';
+import Header from './header';
+import useSiteMetadata from '../hooks/use-sitemetadata';
 
-const NavLink = styled(Link)`
-  color: #222;
-  font-size: 1rem;
-  font-weight: ${props => props.fontWeight || 'normal'};
-  line-height: 1;
-  margin: 0 0.5rem 0 0;
-  padding: 0.25rem;
-  text-decoration: none;
+const Layout = ({ children }) => {
+  const { title, description } = useSiteMetadata();
 
-  &.current-page {
-    border-bottom: 2px solid #222;
-  }
+  return (
+    <>
+      <Global
+        styles={css`
+          * {
+            box-sizing: border-box;
+            margin: 0;
+          }
 
-  &:last-of-type {
-    margin-right: 0;
-  }
-`;
+          /* More info: https://bit.ly/2PsCnzk */
+          * + * {
+            margin-top: 1rem;
+          }
 
-const Header = () => (
-  <header
-    css={css`
-      background: #eee;
-      border-bottom: 1px solid #ddd;
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5rem calc((100vw - 550px - 0.5rem) / 2);
-    `}
-  >
-    <NavLink to="/" fontWeight="bold">
-      FEM Workshop
-    </NavLink>
-    <nav
-      css={css`
-        margin-top: 0;
-      `}
-    >
-      <NavLink to="/" activeClassName="current-page">
-        Home
-      </NavLink>
-      <NavLink to="/about/" activeClassName="current-page">
-        About
-      </NavLink>
-      <NavLink to="/contact/" activeClassName="current-page">
-        Contact
-      </NavLink>
-    </nav>
-  </header>
-);
+          html,
+          body {
+            margin: 0;
+            color: #555;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+              Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+              'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-size: 18px;
+            line-height: 1.4;
 
-export default Header;
+            /* remove margin for the main div that Gatsby mounts into */
+            > div {
+              margin-top: 0;
+            }
+          }
+
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            color: #222;
+            line-height: 1.1;
+
+            + * {
+              margin-top: 0.5rem;
+            }
+          }
+
+          strong {
+            color: #222;
+          }
+
+          li {
+            margin-top: 0.25rem;
+          }
+        `}
+      />
+      <Helmet>
+        <html lang="en" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Helmet>
+      <Header />
+      <main
+        css={css`
+          margin: 2rem auto;
+          max-width: 550px;
+        `}
+      >
+        {children}
+      </main>
+    </>
+  );
+};
+
+export default Layout;
