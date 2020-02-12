@@ -1,4 +1,4 @@
-# [tahirawan.com] (https://tahirawan.com)
+# [tahirawan.com](https://tahirawan.com)
 
 This is the code for my website.
 Currently it is developed in Gatsby with a bunch of plugins.
