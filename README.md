@@ -1,4 +1,4 @@
-# This is the code for my website [tahirawan.com] [https://tahirawan.com]
+# This is the code for my website [tahirawan.com] (https://tahirawan.com)
 
 Currently it is developed in Gatsby with a bunch of plugins.
 
